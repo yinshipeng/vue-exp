@@ -1,7 +1,9 @@
 # vue-exp
 
 > Based on the Vue.js 2.0 version presentation framework  
-  username: admin  password: admin
+
+## Test Account
+username: admin  password: admin
 
 ## Build Setup
 
