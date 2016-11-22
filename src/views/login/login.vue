@@ -21,41 +21,40 @@
 </template>
 <script>
     export default{
-        data(){
-          return {
-            form:{
-              username:'',
-              password:''
-            },
-            rules: {
-              username: [{
-                required: true, message: '请输入用户名', trigger: 'blur'
-              }],
-              password: [{
-                required: true, message: '请输入密码', trigger: 'blur'
-              }]
-            },
-            loading: false,
-            valid: false,
-            loginError: false
-          }
-        },
-        methods: {
-          onSubmit () {
-            this.$refs.form.validate(valid => {
-              if (valid) {
-                this.loading = true
-                this.$store.dispatch('saveCurrentLoginInfo',this.form).then(() => {
-                        this.$router.replace({path:'/'});
-                        location.reload()
-                  })
-              }
-            })
-          }
+      data () {
+        return {
+          form: {
+            username: '',
+            password: ''
+          },
+          rules: {
+            username: [{
+              required: true, message: '请输入用户名', trigger: 'blur'
+            }],
+            password: [{
+              required: true, message: '请输入密码', trigger: 'blur'
+            }]
+          },
+          loading: false,
+          valid: false,
+          loginError: false
         }
+      },
+      methods: {
+        onSubmit () {
+          this.$refs.form.validate(valid => {
+            if (valid) {
+              this.loading = true
+              this.$store.dispatch('saveCurrentLoginInfo', this.form).then(() => {
+                this.$router.replace({ path: '/' })
+                location.reload()
+              })
+            }
+          })
+        }
+      }
 
     }
-
 
 </script>
 <style>

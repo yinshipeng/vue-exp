@@ -61,10 +61,10 @@
   import { getMockUserById } from '../../api/mock.service'
   import { postOneUser } from '../../api/user.service'
   export default {
-    data() {
+    data () {
       return {
         ruleForm: {
-          id:'',
+          id: '',
           name: '',
           region: '',
           date1: '',
@@ -74,7 +74,7 @@
           resource: '',
           desc: ''
         },
-        submitStatus:false,
+        submitStatus: false,
         rules: {
           name: [
             { required: true, message: '请输入活动名称', trigger: 'blur' },
@@ -99,54 +99,51 @@
             { required: true, message: '请填写活动形式', trigger: 'blur' }
           ]
         },
-        mockUser:{}
+        mockUser: {}
       }
     },
     methods: {
-      handleReset() {
+      handleReset () {
         this.$refs.ruleForm.resetFields()
       },
-      handleSubmit(ev) {
+      handleSubmit (ev) {
         this.$refs.ruleForm.validate((valid) => {
           if (valid) {
             this.submitStatus = true
             console.log(this.ruleForm)
-
           } else {
             console.log('error submit!!')
             return false
           }
         })
       },
-      handlePost(){
+      handlePost () {
         getMockUserById().then((resp) => {
-            return resp.body
+          return resp.body
         }).then((body) => {
-            if(this.ruleForm.id){
-                //修改操作
-                body.id=this.ruleForm.id
-            }else{
-                //新增操作
-                body.id=null
-            }
+          if (this.ruleForm.id) {
+                // 修改操作
+            body.id = this.ruleForm.id
+          } else {
+                // 新增操作
+            body.id = null
+          }
 
-            postOneUser(body).then(() => {
-                this.$notify({
-                    title: '操作成功!',
-                    message: '',
-                    type: 'success'
-                })
-                this.$router.push({name:'user'})
+          postOneUser(body).then(() => {
+            this.$notify({
+              title: '操作成功!',
+              message: '',
+              type: 'success'
             })
+            this.$router.push({ name: 'user' })
+          })
         })
-
       }
     },
-    mounted(){
-      if(this.$route.params.id){
+    mounted () {
+      if (this.$route.params.id) {
         this.ruleForm.id = this.$route.params.id
       }
-
     }
   }
 </script>

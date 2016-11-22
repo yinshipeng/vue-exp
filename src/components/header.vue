@@ -15,17 +15,17 @@
 </template>
 <script>
 export default{
-    methods:{
-        handleselect(index){
-            if(index == 1){
-              this.$router.push({name:'user'})
-            }else if(index == '2-3'){
-                this.$store.dispatch("loginOut").then(() => {
-                      this.$router.replace({path:'/login'})
-                      location.reload()
-                })
-            }
-        }
+  methods: {
+    handleselect (index) {
+      if (index === '1') {
+        this.$router.push({ name: 'user' })
+      } else if (index === '2-3') {
+        this.$store.dispatch('loginOut').then(() => {
+          this.$router.replace({ path: '/login' })
+          location.reload()
+        })
+      }
     }
+  }
 }
 </script>

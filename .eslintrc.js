@@ -4,6 +4,9 @@ module.exports = {
   parserOptions: {
     sourceType: 'module'
   },
+  env: {
+    browser: true
+  },
   globals: {
     "_": true
   },
@@ -11,7 +14,9 @@ module.exports = {
   extends: 'vue',
   // required to lint *.vue files
   plugins: [
+    'vuefix',
     'html'
+
   ],
   // add your custom rules here
   'rules': {

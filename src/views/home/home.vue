@@ -7,9 +7,9 @@
 <script>
     import HeaderComponent from '../../components/header.vue'
     export default{
-        components:{
-            HeaderComponent,
-        }
+      components: {
+        HeaderComponent
+      }
     }
 </script>
 <style>

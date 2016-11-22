@@ -97,7 +97,7 @@
   import UserAddDialog from './user.add.dialog.vue'
 
   export default {
-    data() {
+    data () {
       return {
         form: {
           username: '',
@@ -107,25 +107,25 @@
           code: 1
         },
         word: '123.4673',
-        dialogFormVisible: false,
+        dialogFormVisible: false
       }
     },
     computed: {
       ...mapGetters({
         'userData': 'getUserData',
-         'totalCount': 'getTotalCount'
+        'totalCount': 'getTotalCount'
       })
     },
     methods: {
-      onSubmit() {
+      onSubmit () {
         console.log('submit!')
-        this.$store.dispatch("queryUserData", this.form)
+        this.$store.dispatch('queryUserData', this.form)
       },
       addAndTiao () {
         this.$router.push({ name: 'user.add' })
       },
       updateUser (id) {
-        this.$router.push({ name: 'user.update', params: { id: id}})
+        this.$router.push({ name: 'user.update', params: { id: id }})
       },
       addAndTan () {
         this.dialogFormVisible = true
@@ -134,17 +134,19 @@
         this.$confirm('此操作将永久删除该用户, 是否继续?', '提示', {
           type: 'warning'
         }).then(() => {
-          this.$store.dispatch("deleteOneUserById", id).then((resp) => {
-              this.$notify({
-                title: '操作成功!',
-                message: '',
-                type: 'success'
-              })
-            }, (error) => {
-            this.$notify.error({
+          this.$store.dispatch('deleteOneUserById', id).then((resp) => {
+            this.$notify({
+              title: '操作成功!',
+              message: '',
+              type: 'success'
+            })
+          }, (error) => {
+            if (error) {
+              this.$notify.error({
                 title: '操作失败!',
                 message: ''
               })
+            }
           })
         })
       },
@@ -170,7 +172,6 @@
       //  测试工具类，全局使用
       const o = this.$utils.packObjCodeAndLabelUtil(this.$constants.userType)
       console.log('测试Commons:', o)
-
     }
   }
 

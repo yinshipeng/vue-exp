@@ -10,7 +10,7 @@
     "unit": "karma start test/unit/karma.conf.js --single-run",
     "test": "npm run unit",
     "mock": "json-server -c mock/json-server.json mock/db.js",
-    "lint": "eslint --format 'node_modules/eslint-friendly-formatter' --ext .js src mock test/unit/specs --fix"
+    "lint": "eslint --format 'node_modules/eslint-friendly-formatter' --ext .js,.vue src mock test/unit/specs --fix"
   },
   "dependencies": {
     "element-ui": "^1.0.2",
@@ -42,6 +42,7 @@
     "eslint-plugin-promise": "^3.4.0",
     "eslint-plugin-standard": "^2.0.1",
     "eslint-plugin-vue": "^1.0.0",
+    "eslint-plugin-vuefix": "^0.1.0",
     "eventsource-polyfill": "^0.9.6",
     "express": "^4.13.3",
     "extract-text-webpack-plugin": "^1.0.1",
