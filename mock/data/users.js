@@ -25,7 +25,7 @@ users.push({
   password: 'admin',
   idcard: Random.id(),
   birthday: Random.date(),
-  email: Random.email('zillionfortune.com'),
+  email: Random.email('126.com'),
   address: Random.province() + Random.city(false) + Random.county(false)
 })
 module.exports = users
