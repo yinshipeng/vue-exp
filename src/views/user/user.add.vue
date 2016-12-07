@@ -59,7 +59,7 @@
 </template>
 <script>
   import { getMockUserById } from '../../api/mock.service'
-  import { postOneUser } from '../../api/user.service'
+  import { postOneUser, putOneUser } from '../../api/user.service'
   export default {
     data () {
       return {
@@ -124,19 +124,26 @@
           if (this.ruleForm.id) {
                 // 修改操作
             body.id = this.ruleForm.id
+            putOneUser(body).then(() => {
+              this.$notify({
+                title: '操作成功!',
+                message: '',
+                type: 'success'
+              })
+              this.$router.push({ name: 'user' })
+            })
           } else {
                 // 新增操作
             body.id = null
-          }
-
-          postOneUser(body).then(() => {
-            this.$notify({
-              title: '操作成功!',
-              message: '',
-              type: 'success'
+            postOneUser(body).then(() => {
+              this.$notify({
+                title: '操作成功!',
+                message: '',
+                type: 'success'
+              })
+              this.$router.push({ name: 'user' })
             })
-            this.$router.push({ name: 'user' })
-          })
+          }
         })
       }
     },

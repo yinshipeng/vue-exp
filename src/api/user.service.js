@@ -23,6 +23,10 @@ export function postOneUser (user) {
   return http.post('http://127.0.0.1:3000/api/user/', user)
 }
 
+export function putOneUser (user) {
+  return http.put('http://127.0.0.1:3000/api/user/'+user.id, user)
+}
+
 export function deleteOneUserById (id) {
   return http.delete('http://127.0.0.1:3000/api/user/' + id)
 }

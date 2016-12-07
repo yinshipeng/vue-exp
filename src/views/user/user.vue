@@ -66,8 +66,8 @@
         align="center"
         width="180">
         <span>
-          <a @click.native="updateUser(row.id)">编辑</a>
-          <a>删除</a>
+          <a @click="updateUser(row.id)" href="javascript:;">编辑</a>
+          <a @click="deleteUser(row.id)" href="javascript:;">删除</a>
           <!--<el-button type="text" @click.native="updateUser(row.id)">编辑</el-button>-->
           <!--<el-button type="text" @click.native="deleteUser(row.id)">删除</el-button>-->
         </span>
