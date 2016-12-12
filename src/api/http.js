@@ -12,6 +12,7 @@ Vue.http.options.xhr = {withCredentials: true};
 Vue.http.headers.common['Token'] = Cache.token;
 
 const host = 'http://127.0.0.1:3000'
+export const base = 'http://127.0.0.1:3000/mock'
 
 export const getUrl = function({url, mockUrl, mock}) {
     url = '/api/' + url;
