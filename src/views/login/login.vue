@@ -20,6 +20,7 @@
   </div>
 </template>
 <script>
+  import Cache from '../../api/cache'
     export default{
       data () {
         return {
@@ -46,6 +47,7 @@
             if (valid) {
               this.loading = true
               this.$store.dispatch('saveCurrentLoginInfo', this.form).then(() => {
+                Cache.token = 'Basic YXBpOnBhc3N3b3Jk'
                 this.$router.replace({ path: '/' })
                 location.reload()
               })

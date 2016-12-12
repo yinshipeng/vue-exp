@@ -1,12 +1,13 @@
 /**
  * Created by yinshipeng on 2016/11/4.
  */
-import http from './http'
+import { http, getUrl } from './http'
 
 export function loginAuth (username, password) {
-  return http.get('http://127.0.0.1:3000/api/user?username=' + username + '&password=' + password)
-}
-
-export default {
-  loginAuth
+  let url = getUrl({
+    url: 'user?username=' + username + '&password=' + password,
+    mockUrl: 'user?username=' + username + '&password=' + password,
+    mock: true
+  })
+  return http.get(url)
 }

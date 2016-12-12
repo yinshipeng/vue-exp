@@ -5,7 +5,7 @@
 </template>
 <script>
 </script>
-<style>
+<style rel="stylesheet/scss" lang="scss">
   body{
     background-color: #E7EBEE;
     margin: 0px;
@@ -17,11 +17,10 @@
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: #2c3e50;
+    a {
+      color: #42b983;
+      text-decoration: none;
+    }
   }
-
-  #app a {
-    color: #42b983;
-    text-decoration: none;
-  }
-
 </style>
+
